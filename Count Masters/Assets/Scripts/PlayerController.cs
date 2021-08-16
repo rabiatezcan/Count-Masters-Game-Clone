@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private GameObject playersObject; 
     private Rigidbody rigidbody;
     private float speed = 5f;
+    
     void Start()
     {
+        playersObject = GameObject.FindGameObjectWithTag("Player");
+        transform.parent = playersObject.transform;
         rigidbody = GetComponent<Rigidbody>();
     }
 
@@ -20,4 +24,6 @@ public class PlayerController : MonoBehaviour
     {
         rigidbody.AddForce(transform.forward * speed, ForceMode.Force);
     }
+    
+    
 }
