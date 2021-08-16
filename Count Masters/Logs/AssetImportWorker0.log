@@ -114,3 +114,12 @@ Received Import Request.
 Start importing Assets/Prefabs/Enemy.prefab using Guid(ddd5050b5f6ae1f408d15763511adbc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7208b0bce4d570859c25ea4476954175') in 0.138061 seconds
   Import took 0.141652 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 716.257939 seconds.
+  path: Assets/Prefabs/Stairs.prefab
+  artifactKey: Guid(4dc2bed64a2b7c94f973a4b4190cfe07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Stairs.prefab using Guid(4dc2bed64a2b7c94f973a4b4190cfe07) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73a51af11cfb865465f7de93264967a1') in 0.032178 seconds
+  Import took 0.037692 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
