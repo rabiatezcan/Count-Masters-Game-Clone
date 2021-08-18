@@ -4,36 +4,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+public delegate bool OutOfBoundsHandler();
+
 public class PlayersDragController : MonoBehaviour
 {
-    private bool isTouching = false;
-    private float touchPosX;
-    private float movementSpeed = 15f;
-
     private void Update()
     {
-        GetMouseInput();
-    }
-
-    private void FixedUpdate()
-    {
-        if (isTouching)
+        if (Input.touchCount > 0)
         {
-            touchPosX += Input.GetAxis("Mouse X") * movementSpeed * Time.fixedDeltaTime;
+            Touch touch = Input.GetTouch(0);
+            Ray ray = Camera.main.ScreenPointToRay(touch.position);
+            Vector3 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+            if( touch.phase == TouchPhase.Moved)
+            { 
+                transform.position = new Vector3(touchPos.x,transform.position.y, transform.position.z) ;
+            }
         }
-
-        transform.position = new Vector3(touchPosX, transform.position.y, transform.position.z);
-    }
-
-    private void GetMouseInput()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            isTouching = true;
-        }
-        else
-        {
-            isTouching = false;
-        }
+ 
     }
 }
