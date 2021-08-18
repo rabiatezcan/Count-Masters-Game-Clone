@@ -5,16 +5,30 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private GameObject playersObject; 
+    private PlayerManager playerManager;
     private Rigidbody rigidbody;
-    private float speed = 5f;
-    private float planeBound = 2.5f;
-    
+    private float speed = 3f;
+    private float planeBound = 2.3f;
+
+    private void Awake()
+    {
+        playerManager = FindObjectOfType<PlayerManager>();
+    }
+
     void Start()
     {
-        playersObject = GameObject.FindGameObjectWithTag("Player");
-        transform.parent = playersObject.transform;
+        transform.parent = playerManager.gameObject.transform;
         rigidbody = GetComponent<Rigidbody>();
+    }
+
+    private void OnEnable()
+    {
+        playerManager.OutOfBoundsEvent += OutOfBounds;
+    }
+
+    private void OnDisable()
+    {
+        playerManager.OutOfBoundsEvent -= OutOfBounds;
     }
 
     void Update()
@@ -24,13 +38,19 @@ public class PlayerController : MonoBehaviour
 
     public void MoveForward()
     {
-        rigidbody.AddForce(transform.forward * speed, ForceMode.Force);
+        rigidbody.velocity = transform.forward * speed;
     }
 
-    public bool OutOfBounds()
+    public void OutOfBounds()
     {
-        return (Mathf.Abs(transform.position.x) > planeBound);
+        float direction = 1; 
+        if (Mathf.Abs(transform.position.x) > planeBound)
+        {
+            if (transform.position.x < 0)
+            {
+                direction = -1; 
+            }
+            transform.position = new Vector3(planeBound * direction, transform.position.y, transform.position.z);
+        }
     }
-    
-    
 }
