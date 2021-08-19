@@ -12,9 +12,11 @@ public class PlayerManager : MonoBehaviour
 {
     public event OutOfBoundsHandler OutOfBoundsEvent;
     public bool isGameOver = false;
+    public bool isLevelFinished;
     [SerializeField] private GameObject playerPrefab;
     private Vector3 deltaVector = new Vector3(0.35f, 0, 0);
     public float planeBound = 2.3f;
+    public float zAxisForStair;
 
     private void Awake()
     {
@@ -72,8 +74,8 @@ public class PlayerManager : MonoBehaviour
         int row = RowSize();
         int playerCount = (2 * row) - 1;
         float spaceBetweenPlayers = deltaVector.x ;
-        int childIndex = 0; 
-
+        int childIndex = 0;
+        float yAxis = -0.26f;
         for (int i = 1; i <= row; i++)
         {
             float xAxis = -planeBound + (spaceBetweenPlayers * (i - 1));
@@ -82,15 +84,16 @@ public class PlayerManager : MonoBehaviour
             {
                 xAxis += spaceBetweenPlayers;
                 if(childIndex < transform.childCount) 
-                    transform.GetChild(childIndex++).position = new Vector3(xAxis, -0.26f + (0.6f * i), 109f);
+                    transform.GetChild(childIndex++).position = new Vector3(xAxis, yAxis + (0.6f * i), zAxisForStair);
             }
             playerCount -= 2;
         }
+        isLevelFinished = true;
     }
 
     private int RowSize()
     {
-        int row = 1;
+        int row = 0;
         int sum = 0;
         int temp = 1;
         while (sum <= transform.childCount)
