@@ -21,13 +21,19 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.parent.childCount > transform.childCount)
+        Transform playerParent = other.transform.parent;
+        if (playerParent.childCount > enemyCount)
         {
+            for (int i = 0; i < enemyCount; i++)
+            {
+                Destroy(playerParent.GetChild((playerParent.childCount-1) - i).gameObject);
+               
+            } 
             Destroy(gameObject);
         }
         else
         {
-            Debug.Log("Dead");
+            other.gameObject.GetComponent<PlayerManager>().isGameOver = true;
         }
     }
     
