@@ -11,10 +11,8 @@ public class CameraController : MonoBehaviour
         player = FindObjectOfType<PlayerController>().gameObject;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y,
-            player.transform.position.z - cameraOffset);
+        transform.position = new Vector3(transform.position.x, transform.position.y, player.transform.position.z - cameraOffset);
     }
 }
