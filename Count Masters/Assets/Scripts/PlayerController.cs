@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private PlayerManager playerManager;
     private Rigidbody rigidbody;
-    private float speed = 3f;
+    private float speed = 6f;
     private float planeBound = 2.3f;
 
     private void Awake()
