@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     private PlayerManager playerManager;
     private Rigidbody rigidbody;
     private float speed = 6f;
-    private float planeBound = 2.3f;
 
     private void Awake()
     {
@@ -44,13 +43,13 @@ public class PlayerController : MonoBehaviour
     public void OutOfBounds()
     {
         float direction = 1; 
-        if (Mathf.Abs(transform.position.x) > planeBound)
+        if (Mathf.Abs(transform.position.x) > playerManager.planeBound)
         {
             if (transform.position.x < 0)
             {
                 direction = -1; 
             }
-            transform.position = new Vector3(planeBound * direction, transform.position.y, transform.position.z);
+            transform.position = new Vector3(playerManager.planeBound * direction, transform.position.y, transform.position.z);
         }
     }
 }

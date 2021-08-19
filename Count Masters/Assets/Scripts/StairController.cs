@@ -19,5 +19,7 @@ public class StairController : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         playerManager.MakeTrianglePlayers();
+        gameObject.GetComponent<BoxCollider>().isTrigger = true;
+
     }
 }
