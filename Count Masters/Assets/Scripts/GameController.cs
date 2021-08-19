@@ -21,12 +21,22 @@ public class GameController : MonoBehaviour
         {
             gameOverPanel.SetActive(true);
         }
+
+        if (playerManager.isLevelFinished)
+        {
+            Invoke("LevelFinished", 2f);
+        }
         
     }
 
     public void GoToScene(int value)
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + value);
+    }
+
+    public void LevelFinished()
+    {
+        levelFinishPanel.SetActive(playerManager.isLevelFinished);
     }
 
 }
