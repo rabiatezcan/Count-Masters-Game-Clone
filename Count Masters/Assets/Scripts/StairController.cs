@@ -17,7 +17,8 @@ public class StairController : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision other)
-    {
+    {        
+        playerManager.zAxisForStair = GetComponent<BoxCollider>().transform.position.z;
         playerManager.MakeTrianglePlayers();
         gameObject.GetComponent<BoxCollider>().isTrigger = true;
 
