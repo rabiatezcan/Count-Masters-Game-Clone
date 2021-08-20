@@ -51,7 +51,6 @@ public class PlayerController : MonoBehaviour
             }
             transform.position = new Vector3(playerManager.planeBound * direction, transform.position.y, transform.position.z);
         }
-
         if (transform.position.y < -0.2f)
         {
             Destroy(gameObject);
