@@ -22,11 +22,6 @@ public class PlayerManager : MonoBehaviour
     {
         SpawnPlayer(2);
     }
-
-    private void Start()
-    {
-    }
-
     private void Update()
     {
         if (Input.touchCount > 0)
@@ -37,12 +32,11 @@ public class PlayerManager : MonoBehaviour
             if (touch.phase == TouchPhase.Moved)
             {
                 transform.position = new Vector3(touchPos.x, transform.position.y, transform.position.z);
-
-                if (OutOfBoundsEvent != null)
-                {
-                    OutOfBoundsEvent();
-                }
             }
+        }
+        if (OutOfBoundsEvent != null)
+        {
+            OutOfBoundsEvent();
         }
     }
 
