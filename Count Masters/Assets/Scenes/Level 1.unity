@@ -269,7 +269,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &96012573
 GameObject:
@@ -365,7 +365,7 @@ RectTransform:
   - {fileID: 346316664}
   - {fileID: 1109067298}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -949,7 +949,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.47058824, g: 0.5568628, b: 0.69803923, a: 0}
+  m_BackGroundColor: {r: 0.23268066, g: 0.41638088, b: 0.7169812, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2033,6 +2033,7 @@ MonoBehaviour:
   isLevelFinished: 0
   playerPrefab: {fileID: 5325040431127359644, guid: 141be339dcb6f244385a8ce31a72196d, type: 3}
   planeBound: 2.3
+  zAxisForStair: 0
 --- !u!1 &1431026076
 GameObject:
   m_ObjectHideFlags: 0
@@ -2549,7 +2550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2687560226157075726, guid: 4dc2bed64a2b7c94f973a4b4190cfe07, type: 3}
       propertyPath: m_Center.z
-      value: 0.41
+      value: -1.52
       objectReference: {fileID: 0}
     - target: {fileID: 6878921703973101659, guid: 4dc2bed64a2b7c94f973a4b4190cfe07, type: 3}
       propertyPath: m_TagString
