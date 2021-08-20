@@ -13,6 +13,14 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y, player.transform.position.z - cameraOffset);
+        if (player != null)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y,
+                player.transform.position.z - cameraOffset);
+        }
+        else
+        {
+            player = FindObjectOfType<PlayerController>().gameObject;
+        }
     }
 }
